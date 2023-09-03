@@ -14,6 +14,24 @@ export const getToken = req => {
   return null;
 };
 
+export const generateAuthJwtToken = user => {
+  const { isAdmin, email, userId } = user;
+  const expirationTime = moment().add(TOKEN_EXPIRY, 'minutes').valueOf() / 1000;
+  const payload = { isAdmin, email, userId };
+  try {
+    const token = sign(
+      {
+        exp: Math.ceil(expirationTime),
+        data: payload
+      },
+      jwtSecret
+    );
+    return token;
+  } catch {
+    return undefined;
+  }
+};
+
 export const verifyJwtToken = token => {
   try {
     const decoded = verify(token, jwtSecret);

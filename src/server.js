@@ -9,7 +9,7 @@ import cors from 'cors';
 import responseTime from 'response-time';
 
 import { requestResponse, errorHandler } from './middlewares';
-import { appRouter} from './routes';
+import { appRouter } from './routes';
 
 // Create the Express application object
 const server = express();

@@ -2,4 +2,4 @@
 
 import appRouter from './appRouter';
 
-export { appRouter};
+export { appRouter };

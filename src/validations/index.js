@@ -3,34 +3,19 @@
 /**
  * https://github.com/validatorjs/validator.js#validators
  */
-import {
-  query,
-  body,
-  validationResult,
-  param,
-  header
-} from 'express-validator';
+import { query, body, validationResult, param } from 'express-validator';
 
-const headerValidation = [
-  header('Authorization')
-    .isString()
-    .not()
-    .isEmpty()
-    .withMessage('Must provide authorization token')
-];
-
-const invoiceQueryValidation = [
+const getAllQueryValidation = [
   query('page')
     .isString()
     .not()
     .isEmpty()
-    .withMessage('Must provide a page for invoices'),
+    .withMessage('Must provide a page number for resource.'),
   query('limit')
     .isString()
     .not()
     .isEmpty()
-    .withMessage('Must provide a limit for invoices'),
-  ...headerValidation
+    .withMessage('Must provide a limit for resources returned.')
 ];
 
-export { invoiceQueryValidation, headerValidation, validationResult };
+export { getAllQueryValidation, validationResult };
