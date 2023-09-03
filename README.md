@@ -1,2 +1,2 @@
 # Ethylene
-Service for all interactions for managing all interactions with The Booth web and mobile applications (Booth Manager)
+Service for all interactions for managing all data points with The Booth Web and Mobile applications (Booth Manager)
