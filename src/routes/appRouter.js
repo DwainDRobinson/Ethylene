@@ -9,13 +9,13 @@ const { version } = require('../../package.json');
 
 const router = Router();
 
-router.get('/booth-service/', cache(), (_, res) => {
+router.get('/', cache(), (_, res) => {
   res
     .status(200)
     .send({ message: 'Welcome to Ethylene Booth Manager Service!' });
 });
 
-router.get('/booth-service/probeCheck', (_, res) => {
+router.get('/probeCheck', (_, res) => {
   res.status(200).send({
     uptime: fancyTimeFormat(process.uptime()),
     date: new Date(),

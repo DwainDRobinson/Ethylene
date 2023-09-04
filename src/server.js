@@ -8,8 +8,11 @@ import noCache from 'nocache';
 import cors from 'cors';
 import responseTime from 'response-time';
 
+import config from './config';
 import { requestResponse, errorHandler } from './middlewares';
 import { appRouter, permissionRouter } from './routes';
+
+const { baseUrl } = config;
 
 // Create the Express application object
 const server = express();
@@ -48,11 +51,11 @@ server.use(requestResponse);
 console.log('Loaded request/response middleware.');
 
 //App middleware
-server.use(appRouter);
+server.use(`/${baseUrl}`, appRouter);
 console.log('Loaded server routes middleware.');
 
 //Permissions middleware
-server.use(permissionRouter);
+server.use(`/${baseUrl}`, permissionRouter);
 console.log('Loaded permissions routes middleware.');
 
 //error handler middleware

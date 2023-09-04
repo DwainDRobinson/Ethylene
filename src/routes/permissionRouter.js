@@ -9,7 +9,7 @@ const { Router } = express;
 const router = Router();
 
 router.get(
-  '/booth-service/getPermissions',
+  '/getPermissions',
   getAllQueryValidation,
   validationHandler,
   PermissionController.getPermissions

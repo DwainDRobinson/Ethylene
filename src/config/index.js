@@ -7,6 +7,7 @@ const config = {
   HOST: process.env.HOST,
   PORT: process.env.PORT,
   jwtSecret: process.env.JWT_SECRET,
+  baseUrl: process.env.BASE_URL,
   defaultCacheTtl: parseInt(process.env.DEFAULT_CACHE_TTL, 10),
   sources: {
     database: {
