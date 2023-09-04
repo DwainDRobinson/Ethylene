@@ -18,4 +18,17 @@ const getAllQueryValidation = [
     .withMessage('Must provide a limit for resources returned.')
 ];
 
-export { getAllQueryValidation, validationResult };
+const permissionBodyValidation = [
+  body('name')
+    .isString()
+    .not()
+    .isEmpty()
+    .withMessage('Must provide a name for permission.'),
+  body('description')
+    .isString()
+    .not()
+    .isEmpty()
+    .withMessage('Must provide a description for permission.')
+];
+
+export { getAllQueryValidation, permissionBodyValidation, validationResult };

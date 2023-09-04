@@ -9,7 +9,7 @@ import cors from 'cors';
 import responseTime from 'response-time';
 
 import { requestResponse, errorHandler } from './middlewares';
-import { appRouter } from './routes';
+import { appRouter, permissionRouter } from './routes';
 
 // Create the Express application object
 const server = express();
@@ -50,6 +50,10 @@ console.log('Loaded request/response middleware.');
 //App middleware
 server.use(appRouter);
 console.log('Loaded server routes middleware.');
+
+//Permissions middleware
+server.use(permissionRouter);
+console.log('Loaded permissions routes middleware.');
 
 //error handler middleware
 server.use(errorHandler);
