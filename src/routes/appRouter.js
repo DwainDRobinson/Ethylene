@@ -9,17 +9,17 @@ const { version } = require('../../package.json');
 
 const router = Router();
 
-router.get('/invoice-service/', cache(), (_, res) => {
+router.get('/booth-service/', cache(), (_, res) => {
   res
     .status(200)
-    .send({ message: 'Welcome to Ethylene Invoice Manager Service!' });
+    .send({ message: 'Welcome to Ethylene Booth Manager Service!' });
 });
 
-router.get('/invoice-service/probeCheck', (_, res) => {
+router.get('/booth-service/probeCheck', (_, res) => {
   res.status(200).send({
     uptime: fancyTimeFormat(process.uptime()),
     date: new Date(),
-    message: 'Ethylene Invoice Manager service up and running!',
+    message: 'Ethylene Booth Manager service up and running!',
     appVersion: version
   });
 });
